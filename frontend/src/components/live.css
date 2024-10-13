@@ -1,0 +1,71 @@
+.live-page {
+    white-space: nowrap;
+    font-size: 2em;
+    color: #ffffff;
+    background-color: #333333;
+    padding: 40px;
+    display: flex;
+    word-wrap: break-word;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.hebrew {
+    direction: rtl;
+    text-align: right;
+    display: inline-block;
+}
+
+.song-details {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.song-details h1 {
+    font-size: 3em;
+    color: rgb(253, 227, 81);
+    margin: 0;
+}
+
+.song-details h2 {
+    font-size: 1.8em;
+    color: rgb(253, 227, 81);
+    margin: 10px 15px;
+}
+
+.chord-line {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.chord {
+    flex: 1;
+    text-align: center;
+    font-size: 1.2em;
+    color: #802ae4;
+}
+
+.lyric-line {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.lyrics {
+    flex: 2;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 2px 40px;
+}
+
+.scrolling-indicator {
+    margin-top: 20px;
+    color: #00ff00;
+    font-size: 1.5em;
+}

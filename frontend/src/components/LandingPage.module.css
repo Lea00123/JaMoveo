@@ -1,0 +1,25 @@
+.title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.button {
+    background-color: #f39c12; 
+    border: 2px solid #f39c12; 
+    border-radius: 30px;
+    padding: 15px; 
+    font-size: 1.2rem;
+    margin: 10px;
+    cursor: pointer;
+    width: 220px; 
+    text-align: center;
+    transition: all 0.3s ease; 
+}
+
+.button:hover {
+    background-color: #d35400; 
+    transform: scale(1.1); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,44 @@
+.container {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom right, #304e50, #74bbaa);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.background {
+    background: linear-gradient(to bottom right, #304e50, #74bbaa);
+    padding: 20px; 
+    min-height: 100vh; 
+}
+
+.logo {
+    width: 40%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.button {
+    background-color: #f39c12;
+    border: 2px solid #f39c12;
+    border-radius: 30px;
+    padding: 15px;
+    font-size: 1.2rem;
+    margin: 10px;
+    cursor: pointer;
+    width: 220px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #d35400;
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+
