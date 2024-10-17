@@ -1,4 +1,4 @@
-# JaMoveo - Sharing Music Sessions
+# JaMoveo - Sharing Music Sessions 🎸
 
 - App is deployed using heroku (node.js server), heroku JawsDB MySQL (database) and Netlify (React client)
 - Production url: https://jamoveo-lea.netlify.app/
