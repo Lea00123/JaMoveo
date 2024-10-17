@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import AdminLoginForm from './components/AdminLoginForm';
@@ -15,7 +15,27 @@ function App() {
     const navigate = useNavigate(); 
     const [userRole, setUserRole] = useState(null);
     const [userInstrument, setUserInstrument] = useState(null);
-    const results = useState(null);
+    const [results, setResults] = useState([]);
+
+    useEffect(() => {
+        socket.on('searchResults', (data) => {
+            setResults(data);
+            navigate('/adminresults');
+        });
+
+        socket.on('quit', () => {
+            if (userRole === 'admin') {
+                navigate('/adminmain');
+            } else {
+                navigate('/playermain');
+            }
+        });
+
+        return () => {
+            socket.off('searchResults');
+            socket.off('quit');
+        };
+    }, [navigate, userRole]);
 
     const handleSignupSuccess = () => {
         navigate('/login'); 
@@ -41,6 +61,10 @@ function App() {
         navigate('/live', { state: { songTitle: song.songName, songArtist: song.artistName, songUrl: song.url } });
     };
 
+    const handleSearch = (query) => {
+        socket.emit('searchSong', query);
+    };
+
     return (
         <div>
             <Routes>
@@ -50,7 +74,7 @@ function App() {
                 <Route path="/admin/login" element={<AdminLoginForm onLoginSuccess={handleLoginSuccess} />} />
                 <Route 
                     path="/adminmain" 
-                    element={<AdminMainPage />}
+                    element={<AdminMainPage onSearch={handleSearch} />}
                 />
                 <Route 
                     path="/adminresults" 

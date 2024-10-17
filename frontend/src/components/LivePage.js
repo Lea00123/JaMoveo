@@ -53,23 +53,13 @@ const LivePage = ({ userRole, userInstrument }) => {
             return /[\u0590-\u05FF]/.test(text);
         };
 
-        const addWordSpacing = (text) => {
-            if (isHebrew(text)) {
-                return text; 
-            } else {
-                return text.replace(/([a-z])([A-Z])/g, '$1 $2')
-                           .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
-                           .split('').join('\u200B');
-            }
-        };
-
         return songDetails.content.map((section, sectionIndex) => (
             <div key={sectionIndex} className="song-section">
                 {userInstrument !== 'Singer' && Array.isArray(section) && (
                     <div className="chord-line">
                         {section.map((item, itemIndex) => (
                             <span key={`chord-${itemIndex}`} className="chord">
-                                {item.chords ? addWordSpacing(item.chords) : ' '}
+                                {item.chords ? item.chords : ' '}
                             </span>
                         ))}
                     </div>
@@ -78,11 +68,11 @@ const LivePage = ({ userRole, userInstrument }) => {
                     {Array.isArray(section) ? (
                         section.map((item, itemIndex) => (
                             <span key={`lyrics-${itemIndex}`} className="lyrics">
-                                {item.lyrics ? addWordSpacing(item.lyrics) : ''}
+                                {item.lyrics ? item.lyrics : ''}
                             </span>
                         ))
                     ) : (
-                        <span className="lyrics">{section ? addWordSpacing(section) : ''}</span>
+                        <span className="lyrics">{section ? section : ''}</span>
                     )}
                 </div>
             </div>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './../global.css';
-import socket from './socket';
 
-const AdminMainPage = () => {
+const AdminMainPage = ({ onSearch }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -13,7 +12,8 @@ const AdminMainPage = () => {
         }
 
         setLoading(true);
-        socket.emit('searchSong', searchQuery);
+        onSearch(searchQuery);
+        setLoading(false);
     };
 
     return (
